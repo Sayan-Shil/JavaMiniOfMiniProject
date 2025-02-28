@@ -1,3 +1,9 @@
+package Student;
+
+import ExamCentre.Generate_ResultID;
+import ExamCentre.OracleDataBase;
+import ExamCentre.QuestionSet;
+
 import java.sql.*;
 import java.util.Scanner;
 
@@ -7,7 +13,6 @@ public class Student_Registration {
      public static String Place;
     public static String Country;
     public static String ResultID;
-    public static Connection conn = null;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -20,6 +25,7 @@ public class Student_Registration {
         System.out.println("Enter Country:");
         Country = sc.nextLine();
         ResultID = Generate_ResultID.generateresultID.get();
+        StudentExam.ResultID=ResultID;
 
         try(Connection conn= DriverManager.getConnection(OracleDataBase.ORACLE_URL,OracleDataBase.ORACLE_USERNAME,OracleDataBase.ORACLE_PASSWORD);
             PreparedStatement pst = conn.prepareStatement("INSERT INTO STUDENTS_INFO (STUDENT_NAME, STUDENT_EMAIL, STUDENT_PLACE, STUDENT_COUNTRY, STUDENT_RESULTID) VALUES (?, ?, ?, ?, ?)")
@@ -37,8 +43,10 @@ public class Student_Registration {
             System.out.println(se.getMessage());
         }
 
-        ExamCentre.questions(ResultID);
-        System.out.println("Thank You For Exam ! Your Generated result ID - " +ResultID);
+        System.out.println("Your result ID is -->" +ResultID);
+        System.out.println("Exam Registration Successful !! Wait For Exam");
+
+
 
     }
 

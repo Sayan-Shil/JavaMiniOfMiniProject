@@ -1,10 +1,12 @@
+package ExamCentre;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class ExamCentre {
+public class QuestionSet {
     public static void questions(String resultID) {
         Scanner scanner = new Scanner(System.in);
         int score = 0;

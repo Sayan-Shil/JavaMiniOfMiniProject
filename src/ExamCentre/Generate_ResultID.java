@@ -1,3 +1,5 @@
+package ExamCentre;
+
 import java.util.Random;
 import java.util.function.Supplier;
 
