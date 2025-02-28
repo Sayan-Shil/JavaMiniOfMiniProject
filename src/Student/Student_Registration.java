@@ -2,7 +2,6 @@ package Student;
 
 import ExamCentre.Generate_ResultID;
 import ExamCentre.OracleDataBase;
-import ExamCentre.QuestionSet;
 
 import java.sql.*;
 import java.util.Scanner;
@@ -25,7 +24,7 @@ public class Student_Registration {
         System.out.println("Enter Country:");
         Country = sc.nextLine();
         ResultID = Generate_ResultID.generateresultID.get();
-        StudentExam.ResultID=ResultID;
+        Student_Exam.ResultID=ResultID;
 
         try(Connection conn= DriverManager.getConnection(OracleDataBase.ORACLE_URL,OracleDataBase.ORACLE_USERNAME,OracleDataBase.ORACLE_PASSWORD);
             PreparedStatement pst = conn.prepareStatement("INSERT INTO STUDENTS_INFO (STUDENT_NAME, STUDENT_EMAIL, STUDENT_PLACE, STUDENT_COUNTRY, STUDENT_RESULTID) VALUES (?, ?, ?, ?, ?)")
